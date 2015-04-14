@@ -1,5 +1,5 @@
 # iOS-NotificationsHandler
-Easy access methods to NSNotificationCenter for Posting, Registering and Unregistering, Including Blocks.
+Easy access 'one-liner' static methods to NSNotificationCenter for Posting, Registering and Unregistering, Including Blocks.
 
 ### Post Notification methods
 
@@ -10,6 +10,14 @@ void postNotification(NSString *name);
 - For posting a standard notification with object:
 ```sh
 void postNotificationWithObject(NSString *name, id object);
+```
+- For posting a notification with a userInfo dictionary (object is default nil):
+```sh
+void postNotificationWithUserInfo(NSString *name, NSDictionary *userInfo);
+```
+- For posting a notification with an object and a userInfo dictionary:
+```sh
+void postNotificationWithObjectAndUserInfo(NSString *name, id object, NSDictionary *userInfo);
 ```
 
 
@@ -41,10 +49,17 @@ void unregisterToNotificationsWithName(id observer, NSString *name, id object);
 
 ## How To Use
 
-Simply call it like a static function:
+- Import Class:
+```sh
+#import "NotificationsHandler.h"
+```
+
+- Simply call it like a static function:
 
 ```sh
 registerToNotificationWithBlock(@"some string", nil, ^(NSNotification *note) {
+
+NSLog(note.userInfo.description);
 [self reloadData];
 });
 ```
@@ -56,7 +71,6 @@ unregisterToNotifications(self);
 ```sh
 registerToNotification(self, @selector(reloadData), @"some string");
 ```
-
 
 --
 --

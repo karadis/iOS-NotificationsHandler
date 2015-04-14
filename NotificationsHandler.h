@@ -13,6 +13,8 @@
 // Post Notification
 void postNotification(NSString *name);
 void postNotificationWithObject(NSString *name, id object);
+void postNotificationWithUserInfo(NSString *name, NSDictionary *userInfo);
+void postNotificationWithObjectAndUserInfo(NSString *name, id object, NSDictionary *userInfo);
 
 // Add Observer
 void registerToNotification(id observer, SEL selector, NSString *name);

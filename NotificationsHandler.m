@@ -15,6 +15,14 @@ void postNotificationWithObject(NSString *name, id object) {
     [[NSNotificationCenter defaultCenter] postNotificationName:name object:object];
 }
 
+void postNotificationWithUserInfo(NSString *name, NSDictionary *userInfo) {
+    [[NSNotificationCenter defaultCenter] postNotificationName:name object:nil userInfo:userInfo];
+}
+
+void postNotificationWithObjectAndUserInfo(NSString *name, id object, NSDictionary *userInfo) {
+    [[NSNotificationCenter defaultCenter] postNotificationName:name object:object userInfo:userInfo];
+}
+
 void registerToNotification(id observer, SEL selector, NSString *name) {
     [[NSNotificationCenter defaultCenter] addObserver:observer selector:selector name:name object:nil];
 }
