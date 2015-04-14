@@ -39,6 +39,23 @@ void unregisterToNotifications(id observer);
 void unregisterToNotificationsWithName(id observer, NSString *name, id object);
 ```
 
+## How To Use
+
+Simply call it like a static function:
+
+```sh
+registerToNotificationWithBlock(@"some string", nil, ^(NSNotification *note) {
+[self reloadData];
+});
+```
+
+```sh
+unregisterToNotifications(self);
+```
+
+```sh
+registerToNotification(self, @selector(reloadData), @"some string");
+```
 
 
 --
