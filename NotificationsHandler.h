@@ -18,13 +18,14 @@ void postNotificationWithObjectAndUserInfo(NSString *name, id object, NSDictiona
 
 // Add Observer
 void registerToNotification(id observer, SEL selector, NSString *name);
+void registerToMultipleNotifications(id observer, SEL selector, NSArray *names);
 void registerToNotificationWithObject(id observer, SEL selector, NSString *name, id object);
 
 // Add Observer with Blocks
 void registerToNotificationWithBlock(NSString *name, void (^notificationBlock)(NSNotification *note));
 void registerToNotificationWithObjectBlock(NSString *name, id object, void (^notificationBlock)(NSNotification *note));
+void registerToMultipleNotificationsWithBlock(NSArray *names, void (^notificationBlock)(NSNotification *note));
 
 // Remove Observer
 void unregisterToNotifications(id observer);
 void unregisterToNotificationsWithName(id observer, NSString *name, id object);
-
