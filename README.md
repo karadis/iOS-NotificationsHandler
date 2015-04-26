@@ -42,8 +42,16 @@ void unregisterToNotificationsWithName(id observer, NSString *name, id object);
 ```sh
 registerToNotificationWithBlock(@"some string", nil, ^(NSNotification *note) {
 
-NSLog(note.userInfo.description);
-[self reloadData];
+    NSLog(note.userInfo.description);
+    [self reloadData];
+});
+```
+
+```sh
+registerToMultipleNotificationsWithBlock(@[NOTIFICATION_LOGIN_DONE,
+                                           NOTIFICATION_LOGOUT_DONE,
+                                           NOTIFICATION_CREATE_USER_DONE], ^(NSNotification *note) {
+    [self reloadData];
 });
 ```
 
